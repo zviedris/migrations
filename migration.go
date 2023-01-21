@@ -1,4 +1,4 @@
-package Migrations
+package main
 
 import (
 	"database/sql"
@@ -12,7 +12,6 @@ import (
 // embed sql directory where migrations is stored
 // and can be accessed to run them
 //
-//go:embed sql
 
 // function to run migration from go - when app is started
 // migration is set just to postgreSql database
