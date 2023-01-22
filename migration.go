@@ -9,16 +9,9 @@ import (
 	"github.com/golang-migrate/migrate/v4/source/iofs"
 )
 
-// embed sql directory where migrations is stored
-// and can be accessed to run them
-//
-
 // function to run migration from go - when app is started
 // migration is set just to postgreSql database
-func RunAutoMigrate(db *sql.DB, migrationPath string) (err error, step string, dbVersion uint) {
-	// embed sql directory where migrations is stored
-	// and can be accessed to run them
-	var fs embed.FS
+func RunAutoMigrate(db *sql.DB, fs embed.FS, migrationPath string) (err error, step string, dbVersion uint) {
 
 	d, err := iofs.New(fs, migrationPath)
 	if err != nil {
